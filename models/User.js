@@ -38,4 +38,4 @@ User.init(
   }
 );
 
-module.exports = Vote;
+module.exports = User;
