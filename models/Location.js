@@ -17,13 +17,6 @@ Location.init(
         state: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        location_url: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-                isUrl: true
-              }
         }
     },
     {
