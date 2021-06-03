@@ -30,7 +30,7 @@ Votes.belongsTo(Post, {
   foreignKey: 'post_id'
 });
 
-User.hasMany(Vote, {
+User.hasMany(Votes, {
   foreignKey: 'user_id'
 });
 
