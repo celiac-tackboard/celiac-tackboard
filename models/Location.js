@@ -10,9 +10,13 @@ Location.init(
             primaryKey: true,
             autoIncrement: true
         },
-        location_title: {
+        city_name: {
             type: DataTypes.STRING,
             allowNull: false,   
+        },
+        state: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         location_url: {
             type: DataTypes.STRING,
