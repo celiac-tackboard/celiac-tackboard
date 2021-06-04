@@ -5,15 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celiac Tackboard</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
 
 <body>
-    <div class="wrapper">
-        <header>
+    <div>
+        <header class="wrapper">
             <h1>
-                <a href="/">Celiac Tackboard</a>
             </h1>
-            <nav>
+            <nav class="navbar has-background-primary" role="navigation">
+                <a class="navbar-brand"> Celiac Tackboard></a>
+                <a class="navbar-item">
+                    Home
+                </a>
+
+                <a class="navbar-item">
+                    Cities
+                </a>
                 {{!-- {{#if loggedIn}}
                 <a></a>
                 {{else}}
@@ -24,7 +31,7 @@
         <main>
             {{{ body }}}
         </main>
-        <footer class="footer hero is-danger has-text-centered">
+        <footer class="footer hero has-background-primary is-medium has-text-centered has-text-white has-text-weight-bold">
             Thank you for using Celiac Tackboard!
         </footer>
     </div>
