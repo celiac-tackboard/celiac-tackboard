@@ -40,10 +40,10 @@ router.get('/:id', (req, res) => {
                 attributes: ['title'],
                 through: Votes,
             },
-            {
-                model: Location,
-                attributes: ['city_name']
-            }
+            // {
+            //     model: Location,
+            //     attributes: ['city_name']
+            // }
         ]
     })
         .then(dbUserData => {
