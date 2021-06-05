@@ -1,7 +1,7 @@
 async function loginFormHandler(event) {
     event.preventDefault();
-
-    const username = document.querySelector("#email-login").nodeValue.trim();
+    // added ids in handlebars
+    const username = document.querySelector("#username-login").nodeValue.trim();
     const password = document.querySelector("#password-login").value.trim();
 
     if (username && password) {
@@ -26,7 +26,7 @@ async function loginFormHandler(event) {
 
 async function signupFormHandler(event) {
     event.preventDefault();
-
+    // added ids to handlebars
     const username = document.querySelector("#username-signup").value.trim();
     const email = document.querySelector("#email-signup").value.trim();
     const password = document.querySelector("#password-signup").value.trim();
@@ -50,7 +50,7 @@ async function signupFormHandler(event) {
         }
     }
 }
-
+// ids should be handlebars
 document.querySelector(".login-form").addEventListener("submit", loginFormHandler);
 
 document.querySelector(".signup-form").addEventListener("submit", signupFormHandler);
