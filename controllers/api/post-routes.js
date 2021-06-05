@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
       'title',
       'description',
       'post_url',
+      'rating',
       'user_id',
       'location_id',
       'createdAt',
@@ -50,6 +51,7 @@ router.get('/:id', (req, res) => {
         'title',
         'description',
         'post_url',
+        'rating',
         'user_id',
         'location_id',
         'createdAt',
@@ -92,6 +94,7 @@ router.post('/', (req, res) => {
     title: req.body.title,
     description: req.body.description,
     post_url: req.body.post_url,
+    rating: req.body.rating,
     user_id: req.body.user_id,
     location_id: req.body.location_id
   })
