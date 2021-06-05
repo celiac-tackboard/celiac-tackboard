@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post, Comment, User } = require('../../models');
+const { Post, Comment, User, Votes } = require('../../models');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -79,6 +79,20 @@ router.post('/', (req, res) => {
     });
 });
 //=================================================
+
+// UPVOTE a post
+router.put('/upvote', (req, res) => {
+  Votes.create({
+    user_id: req.body.user_id,
+    post_id: req.body.post_id
+  })
+    .then(dbVotesData => res.json(dbVotesData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+//====================================================
 
 // UPDATE a post by ID
 router.put('/:id', (req, res) => {

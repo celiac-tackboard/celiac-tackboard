@@ -5,6 +5,7 @@ const { ppid } = require('process');
 const routes = require('./controllers');
 const session = require('express-session');
 const helpers = require('./utils/helpers');
+const exphbs = require('express-handlebars');
 const hbs = exphbs.create({ helpers });
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
