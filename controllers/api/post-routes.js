@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Post, Comment, User, Votes } = require('../../models');
 const sequelize = require('../../config/connection');
+const authguard = require('../../utils/auth');
 
 // GET all posts
 router.get('/', (req, res) => {
@@ -89,7 +90,7 @@ router.get('/:id', (req, res) => {
 //===================================================
 
 // CREATE a post
-router.post('/', (req, res) => {
+router.post('/', authguard, (req, res) => {
   Post.create({
     title: req.body.title,
     description: req.body.description,
@@ -107,7 +108,7 @@ router.post('/', (req, res) => {
 //=================================================
 
 // UPVOTE a post
-router.put('/upvote', (req, res) => {
+router.put('/upvote', authguard, (req, res) => {
   Votes.create({
     user_id: req.body.user_id,
     post_id: req.body.post_id
@@ -121,7 +122,7 @@ router.put('/upvote', (req, res) => {
 //====================================================
 
 // UPDATE a post by ID
-router.put('/:id', (req, res) => {
+router.put('/:id', authguard, (req, res) => {
   Post.update({
     title: req.body.title,
     description: req.body.description,
@@ -147,7 +148,7 @@ router.put('/:id', (req, res) => {
 //=====================================================
 
 // DELETE a post by ID
-router.delete('/:id', (req, res) => {
+router.delete('/:id', authguard, (req, res) => {
   Post.destroy({
     where: {
       id: req.params.id
