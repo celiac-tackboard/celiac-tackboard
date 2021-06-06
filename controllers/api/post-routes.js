@@ -96,7 +96,7 @@ router.post('/', authguard, (req, res) => {
     description: req.body.description,
     post_url: req.body.post_url,
     rating: req.body.rating,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
     location_id: req.body.location_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -109,15 +109,14 @@ router.post('/', authguard, (req, res) => {
 
 // UPVOTE a post
 router.put('/upvote', authguard, (req, res) => {
-  Votes.create({
-    user_id: req.body.user_id,
-    post_id: req.body.post_id
-  })
-    .then(dbVotesData => res.json(dbVotesData))
-    .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+  if (req.session) {
+    Post.upvote({ ...req.body, user_id: req.session.user_id }, { Votes, Comment, User })
+      .then(dbVotesData => res.json(dbVotesData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
+  }
 });
 //====================================================
 
