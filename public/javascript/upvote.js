@@ -23,5 +23,5 @@ async function upvoteClickHandler(event) {
     }
 }
 
-// make sure this id is correct
+// make sure these id / elements are correct
 document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
