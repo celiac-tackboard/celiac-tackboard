@@ -1,0 +1,14 @@
+<article class="post">
+    <div class="title">
+        <a href="{{post_url}}" target="_blank">{{title}}</a>
+        <span>({{format_url post_url}})</span>
+    </div>
+    <div class="meta">
+        {{!-- check if these ids are correct --}}
+        {{!-- do we need to add date info? --}}
+        {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}}
+        |
+        {{!-- check if these ids / route is correct --}}
+        <a href"/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>"
+    </div>
+</article>
