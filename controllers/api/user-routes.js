@@ -39,11 +39,7 @@ router.get('/:id', (req, res) => {
                 model: Post,
                 attributes: ['title'],
                 through: Votes,
-            },
-            // {
-            //     model: Location,
-            //     attributes: ['city_name']
-            // }
+            }
         ]
     })
         .then(dbUserData => {
