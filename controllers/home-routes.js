@@ -1,9 +1,4 @@
 const router = require('express').Router();
-<<<<<<< HEAD
-
-router.get('/', (req, res) => {
-    res.render('homepage');
-=======
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Location } = require('../models');
 
@@ -92,7 +87,6 @@ router.get('/post/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
->>>>>>> origin/develop
 });
 
 module.exports = router;
