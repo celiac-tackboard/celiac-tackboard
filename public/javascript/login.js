@@ -1,5 +1,4 @@
 async function loginFormHandler(event) {
-  console.log("submit");
   event.preventDefault();
   // added ids in handlebars
   const username = document.querySelector("#username-login").value.trim();
@@ -26,8 +25,6 @@ async function loginFormHandler(event) {
 }
 
 async function signupFormHandler(event) {
-  console.log("submit");
-
   event.preventDefault();
   // added ids to handlebars
   const username = document.querySelector("#username-signup").value.trim();
@@ -54,6 +51,15 @@ async function signupFormHandler(event) {
   }
 }
 // ids should be handlebars
+
+function loginRedirect() {
+  event.preventDefault();
+
+  document.location.replace("/login");
+}
+
+document.querySelector("#login").addEventListener("click", loginRedirect);
+
 document
   .querySelector(".login-form")
   .addEventListener("submit", loginFormHandler);
