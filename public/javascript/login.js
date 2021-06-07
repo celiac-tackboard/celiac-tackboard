@@ -1,4 +1,5 @@
 async function loginFormHandler(event) {
+  console.log("submit");
   event.preventDefault();
   // added ids in handlebars
   const username = document.querySelector("#username-login").value.trim();
@@ -25,6 +26,8 @@ async function loginFormHandler(event) {
 }
 
 async function signupFormHandler(event) {
+  console.log("submit");
+
   event.preventDefault();
   // added ids to handlebars
   const username = document.querySelector("#username-signup").value.trim();
