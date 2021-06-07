@@ -1,13 +1,12 @@
 {{! add filler for rest of page }}
 {{! need to add logic to create the user or allow them to sign-in in login.js file}}
-<script src="/javascript/login.js"></script>
 
 <div class="tile is-ancestor mx-2 my-2">
   <div class="tile is-parent is-vertical">
     {{! login }}
     <div class="tile is-child box">
       {{! add intro to page }}
-      <form class="login-form">
+      <form class="login-form" id="login-form">
         <div class="box">
           <label class="label">Login</label>
           <div class="field">
@@ -127,6 +126,8 @@
   </div>
 
 </div>
+
+<script src="/javascript/login.js"></script>
 
 {{! right side of the tile were all the posts will be displayed}}
 

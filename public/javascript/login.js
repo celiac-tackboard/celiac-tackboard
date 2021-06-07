@@ -1,7 +1,7 @@
 async function loginFormHandler(event) {
     event.preventDefault();
     // added ids in handlebars
-    const username = document.querySelector("#username-login").nodeValue.trim();
+    const username = document.querySelector("#username-login").value.trim();
     const password = document.querySelector("#password-login").value.trim();
 
     if (username && password) {

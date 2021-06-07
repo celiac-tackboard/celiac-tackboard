@@ -87,13 +87,6 @@ router.get('/post/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-<<<<<<< HEAD
-});
-
-router.get("/", (req, res) => {
-  res.render("homepage");
-=======
->>>>>>> feature/front-end
 });
 
 router.get("/posts", (req, res) => {
