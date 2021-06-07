@@ -9,15 +9,16 @@
   <a class="navbar-item">
     Profile
   </a>
-  <a class="navbar-item">
-    Login
-  </a>
 
-  {{!-- {{#if loggedIn}}
-                    </a>   <a class="navbar-item">
-                    Logout
-                </a>
-                {{else}}
-                <a></a>
-                {{/if}} --}}
+  {{#if loggedIn}}
+    <a class="navbar-item">
+      Logout
+    </a>
+    <script src="/javascript/logout.js"></script>
+  {{else}}
+    <a class="navbar-item">
+      Login
+    </a>
+    <script src="/javascript/login.js"></script>
+  {{/if}}
 </nav>
