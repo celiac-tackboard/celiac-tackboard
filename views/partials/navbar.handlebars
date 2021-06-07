@@ -10,13 +10,14 @@
     Profile
   </a>
 
+  {{! depending if the user is logged in or not the appropriate buttons and file will be supplied}}
   {{#if loggedIn}}
-    <a class="navbar-item">
+    <a class="navbar-item" id="logout">
       Logout
     </a>
     <script src="/javascript/logout.js"></script>
   {{else}}
-    <a class="navbar-item">
+    <a class="navbar-item" id="login">
       Login
     </a>
     <script src="/javascript/login.js"></script>
