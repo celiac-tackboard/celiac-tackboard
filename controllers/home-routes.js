@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-const router = require("express").Router();
-
-router.get("/", (req, res) => {
-  res.render("homepage");
-=======
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Location } = require('../models');
@@ -93,7 +87,6 @@ router.get('/post/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
->>>>>>> f8406466d110c350364935fba78486b85296a796
 });
 
 router.get("/posts", (req, res) => {
