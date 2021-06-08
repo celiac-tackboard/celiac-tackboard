@@ -1,34 +1,3 @@
-<<<<<<< HEAD
-const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Post, User, Comment, Location } = require('../models');
-
-router.get('/', (req, res) => {
-    console.log(req.session)
-    Post.findAll({
-        attributes: [
-            'id',
-            'post_url',
-            'title',
-            'description',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM votes where post.id = votes.post_id)'), 'votes_count']
-        ],
-        include: [
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
-                model: User,
-                attributes: ['username']
-            }
-        ]
-=======
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
@@ -71,7 +40,6 @@ router.get("/", (req, res) => {
         posts,
         loggedIn: req.session.loggedIn,
       });
->>>>>>> fceed632443d0fd4920fd4301ca2c6f6494c2204
     })
     .catch((err) => {
       console.log(err);
@@ -120,17 +88,6 @@ router.get("/post/:id", (req, res) => {
 
       const post = dbPostData.get({ plain: true });
 
-<<<<<<< HEAD
-            res.render('single-post', {
-                post,
-                loggedIn: req.session.loggedIn
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-=======
       res.render("single-post", {
         post,
         loggedIn: req.session.loggedIn,
@@ -140,7 +97,6 @@ router.get("/post/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
->>>>>>> fceed632443d0fd4920fd4301ca2c6f6494c2204
 });
 
 router.get("/posts", (req, res) => {
