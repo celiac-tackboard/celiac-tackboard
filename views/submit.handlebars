@@ -1,13 +1,13 @@
 <h2 class="has-text-centered is-size-2">Create a Post</h2>
 <div class="columns is-centered my-1">
   <div class="column has-background-primary is-two-thirds">
-    <form>
+    <form class="new-submit-form">
       
       <div class="field">
         <label class="label">Select a City</label>
         <div class="control">
           <div class="select is-normal">
-          <select>
+          <select name="location">
             {{#each locations as |location|}}
             <option>{{location.city_name}}</option>
             {{/each}}
@@ -18,20 +18,20 @@
 
       <div class="field">
         <div class="control">
-          <input class="input" type="text" placeholder="title">
+          <input class="input" type="text" placeholder="title" name="title">
         </div>
       </div>
 
       <div class="field">
         <div class="control">
-          <input class="input" type="url" placeholder="www.yourlinkhere.com">
+          <input name="post_url" class="input" type="url" placeholder="www.yourlinkhere.com">
         </div>
         <p class="help">optional</p>
       </div>
 
       <div class="field">
         <div class="control">
-          <textarea class="textarea" placeholder="Text"></textarea>
+          <textarea name="description" class="textarea" placeholder="Text"></textarea>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
         <label class="label">Rating</label>
         <div class="control">
           <div class="select is-small">
-            <select id="rating">
+            <select id="rating" name="rating">
               <option></option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -53,7 +53,7 @@
 
       <div class="field">
         <div class="control">
-          <button class="button">Submit</button>
+          <button class="button" type="submit">Submit</button>
         </div>
       </div>
 
@@ -61,6 +61,7 @@
   </div>
 </div>
 
+<script src="/javascript/add-post.js"></script>
 
 {{!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.7.2/jquery.min.js" integrity="sha512-poSrvjfoBHxVw5Q2awEsya5daC0p00C8SKN74aVJrs7XLeZAi+3+13ahRhHm8zdAFbI2+/SUIrKYLvGBJf9H3A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="jquery.barrating.min.js"></script>
