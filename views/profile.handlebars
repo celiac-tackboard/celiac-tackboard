@@ -1,5 +1,5 @@
 {{!-- leaving space for navbar  --}}
-<div class="tile is-ancestor">
+<div class="tile is-ancestor mx-2 my-2">
 {{!-- user posts column --}}
 {{#if posts.length}}
 <section>
@@ -16,8 +16,9 @@
 {{/if}}
 
 {{!-- hard code for posts --}}
-<div class="tile is vertical is-4">
+<div class="tile is-vertical is-3">
     <div class="tile">
+        <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary">
             <p class="title">Post Restaurant 1</p>
             <p class="subtitle">Description</p>
@@ -31,7 +32,7 @@
             <p class="subtitle">Description</p>
         </article>
 
-
+        </div>
     </div>
 </div>
 
@@ -50,29 +51,31 @@
 {{/if}} --}}
 
 {{!-- hard code comments --}}
-<div class="tile is vertical is-4">
+<div class="tile is-vertical is-3">
     <div class="tile">
-        <article class="tile is child notification is-success">
+        <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-success">
             <p class="title">Comment on Restaurant 1</p>
             <p class="subtitle">Description</p>
             <div class="content">
                 <p>comment 1</p>
             </div>
         </article>
-        <article class="tile is child notification is-success">
+        <article class="tile is-child notification is-success">
             <p class="title">Comment on Restaurant 2</p>
             <p class="subtitle">Description</p>
             <div class="content">
                 <p>comment 2</p>
             </div>
         </article>
-        <article class="tile is child notification is-success">
+        <article class="tile is-child notification is-success">
             <p class="title">Comment on Restaurant 3</p>
             <p class="subtitle">Description</p>
-        </article>
             <div class="content">
                 <p>comment 3</p>
             </div>
+        </article>
+        </div>
     </div>
 </div>
 
@@ -92,21 +95,22 @@
 
 {{!-- hard code upvoted posts --}}
 
-<div class="tile is vertical is-4">
+<div class="tile is-vertical is-3">
     <div class="tile">
-        <article class="tile is child notification is-info">
+        <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-info">
             <p class="title">upvoted Restaurant 1</p>
             <p class="subtitle">Description</p>
         </article>
-        <article class="tile is child notification is-info">
+        <article class="tile is-child notification is-info">
             <p class="title">upvoted Restaurant 2</p>
             <p class="subtitle">Description</p>
         </article>
-        <article class="tile is child notification is-info">
+        <article class="tile is-child notification is-info">
             <p class="title">upvoted Restaurant 3</p>
             <p class="subtitle">Description</p>
         </article>
-
+        </div>
     </div>
 </div>
 
@@ -127,21 +131,22 @@
 
 {{!-- hard code favorited posts --}}
 
-<div class="tile is vertical is-4">
+<div class="tile is-vertical is-3">
     <div class="tile">
-        <article class="tile is child notification is-link">
+        <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-link">
             <p class="title">Favorited Restaurant 1</p>
             <p class="subtitle">Description</p>
         </article>
-        <article class="tile is child notification is-link">
+        <article class="tile is-child notification is-link">
             <p class="title">Favorited Restaurant 2</p>
             <p class="subtitle">Description</p>
         </article>
-        <article class="tile is child notification is-link">
+        <article class="tile is-child notification is-link">
             <p class="title">Favorited Restaurant 3</p>
             <p class="subtitle">Description</p>
         </article>
-
+        </div>
     </div>
 </div>
 </div>
