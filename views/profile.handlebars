@@ -1,43 +1,29 @@
-{{!-- leaving space for navbar  --}}
+
 <div class="tile is-ancestor mx-2 my-2">
 {{!-- user posts column --}}
-{{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-            <li>
-                {{> post-info post}}
-                {{!-- did not include edit, don't know if we want to add edit post yet --}}
-            </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
-
-{{!-- hard code for posts --}}
 <div class="tile is-vertical is-3">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary has-text-black">
             <p class="title">Your Posts</p>
         </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 1</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 2</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 2</p>
-            <p class="subtitle">Description</p>
-        </article>
+{{#if posts.length}}
 
-        </div>
+    <ol>
+        
+        {{#each posts as |post|}}
+            
+                {{> post-info post}}
+                {{!-- did not include edit, don't know if we want to add edit post yet --}}
+            
+        {{/each}}
+    </ol>
+
+{{/if}}
+    </div>
     </div>
 </div>
+
 
 {{!-- user comments column --}}
 {{!-- {{#if comments.length}}
