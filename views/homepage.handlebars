@@ -5,24 +5,23 @@
     <article class="tile is-child notification is-success">
       {{#each data}}
         {{#if title}}
-          <li class="button is-warning box is-active">{{title}}</li>
+          <li class="button is-warning box">{{title}}</li>
         {{/if}}
       {{/each}}
     </article>
   </div>
 
   {{! right side of the tile were all the posts will be displayed}}
-  <div class="tile is-vertical is-8">
+  <div class="tile is-8">
     <div class="tile">
       {{#each data}}
         {{#if title}}
-          <div class="tile is-parent is-vertical id="posts-container"">
+          <div class="tile is-parent is-vertical is-light id="posts-container">
             {{!-- <article class="tile is-child notification is-primary">
               <p class="title">{{title}}</p>
               <p class="subtitle">Description: {{description}}</p>
               <p class="subtitle is-tiny">User: {{user.username}}</p>
               <p class="subtitle is-link">{{post_url}}</p>
-
             </article>
           </div> --}}
 
@@ -31,24 +30,24 @@
               {{title}}
             </header>
             <div class="card-content">
-              <div class="content">
+              {{!-- <div class="content"> --}}
                 {{description}}
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 Corrupti eveniet voluptatum assumenda quasi non, ad praesentium? 
                 Corrupti officiis rerum et. Consequuntur rerum tempora, maiores optio 
                 reprehenderit sint vero corporis ex!
-              </div>
+              {{!-- </div> --}}
             </div>
             <footer class="card-footer">
-              <p class="card-footer-item box">
+              <p class="card-footer-item ">
                 <a href="{{post_url}}"> {{post_url}}</a>
               </p>
-              <p class="card-footer-item box">
+              <p class="card-footer-item ">
                 {{user.username}}
               </p>
-               <span class="card-footer-item  box">
-                <div class="button">Upvote</div>
-              </span>
+               <p class="card-footer-item button is-centered">
+                upvote
+              </p>
                <p class="card-footer-item box">
                 {{created_at}}
               </p>

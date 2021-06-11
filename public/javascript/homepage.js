@@ -1,5 +1,5 @@
 function getCityPosts(event) {
-  console.log(event);
+  console.log(event.target.outerText);
 }
 
 document.addEventListener(
