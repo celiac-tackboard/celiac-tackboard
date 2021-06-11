@@ -1,7 +1,7 @@
 
 <div class="tile is-ancestor mx-2 my-2">
 {{!-- user posts column --}}
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary has-text-black">
@@ -10,7 +10,6 @@
 {{#if posts.length}}
 
     <ol>
-        
         {{#each posts as |post|}}
             
                 {{> post-info post}}
@@ -26,7 +25,14 @@
 
 
 {{!-- user comments column --}}
-{{!-- {{#if comments.length}}
+{{!-- <div class="tile is-vertical is-3">
+    <div class="tile">
+        <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-success has-text-black">
+            <p class="title">Your Comments</p>
+        </article>
+
+{{#if comments.length}}
 <section>
     <h2>Your Comments</h2>
     <ol>
@@ -40,7 +46,7 @@
 {{/if}} --}}
 
 {{!-- hard code comments --}}
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-success has-text-black">
@@ -87,7 +93,7 @@
 
 {{!-- hard code upvoted posts --}}
 
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-info has-text-black">
@@ -126,11 +132,11 @@
 
 {{!-- hard code favorited posts --}}
 
-<div class="tile is-vertical is-3">
+{{!-- <div class="tile is-vertical is-3">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-link has-text-black">
-            <p class="title">Your Posts</p>
+            <p class="title">Your Faves</p>
         </article>
         <article class="tile is-child notification is-link">
             <p class="title">Favorited Restaurant 1</p>
@@ -148,7 +154,7 @@
     </div>
 </div>
 </div>
-
+ --}}
 {{!-- <script src="/javascript/add-post.js"></script>
 {{!-- need to add scripts for favorited posts --}}
 <script src="/javascript/upvote.js"></script>
