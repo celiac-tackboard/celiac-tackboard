@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
+let data = [];
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -40,28 +41,20 @@ router.get("/", (req, res) => {
       ],
     })
       .then((dbPostData) => {
-        console.log(dbPostData);
         const posts = dbPostData.map((post) => post.get({ plain: true }));
+        console.log(posts);
 
-        const cities = [
-          {
-            name: "madison",
-            state: "WI",
-          },
-          {
-            name: "Milwaukee",
-            state: "WI",
-          },
-          {
-            name: "Chicago",
-            state: "IL",
-          },
-        ];
-
-        const citties = ["Madison", "Chicago", "Arizona"];
+        Location.findAll({}).then((dbLocationData) => {
+          const locations = dbLocationData.map((location) => {
+            // location.get({ plain: true });
+            data.push(location.get({ plain: true }));
+          });
+          data.push(...posts);
+          console.log(locations);
+        });
 
         res.render("homepage", {
-          cities,
+          data,
           loggedIn: req.session.loggedIn,
         });
       })
@@ -72,6 +65,7 @@ router.get("/", (req, res) => {
   } else {
     res.render("login");
   }
+  data = [];
 });
 
 router.get("/login", (req, res) => {
