@@ -6,8 +6,8 @@ async function upvoteClickHandler(event) {
     ];
 
     // make sure these routes are correct
-    const response = await fetch('/api/posts/upvote', {
-        method: 'PUT',
+    const response = await fetch('/api/posts/votes', {
+        method: "PUT",
         bod: JSON.stringify({
             post_id: id
         }),
