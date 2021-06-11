@@ -16,12 +16,12 @@ VALUES
 
 INSERT INTO post (title, description, post_url, user_id, location_id)
 VALUES
-('testpost1', 'lorem lorem lorem lorem lorem lorem', 1, 1),
-('testpost2', 'lorem lorem lorem lorem lorem lorem', 2, 2),
-('testpost3', 'lorem lorem lorem lorem lorem lorem', 2, 3),
-('testpost4', 'lorem lorem lorem lorem lorem lorem', 3, 1),
-('testpost5', 'lorem lorem lorem lorem lorem lorem', 4, 2),
-('testpost6', 'lorem lorem lorem lorem lorem lorem', 1, 4);
+('testpost1', 'lorem lorem lorem lorem lorem lorem', 'www.google.com', 1, 1),
+('testpost2', 'lorem lorem lorem lorem lorem lorem','www.google.com', 2, 2),
+('testpost3', 'lorem lorem lorem lorem lorem lorem','www.google.com', 2, 3),
+('testpost4', 'lorem lorem lorem lorem lorem lorem','www.google.com', 3, 1),
+('testpost5', 'lorem lorem lorem lorem lorem lorem','www.google.com', 4, 2),
+('testpost6', 'lorem lorem lorem lorem lorem lorem','www.google.com', 1, 4);
 
 INSERT INTO comment (comment_text, post_id, user_id)
 VALUES

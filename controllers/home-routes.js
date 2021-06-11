@@ -43,8 +43,25 @@ router.get("/", (req, res) => {
         console.log(dbPostData);
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
+        const cities = [
+          {
+            name: "madison",
+            state: "WI",
+          },
+          {
+            name: "Milwaukee",
+            state: "WI",
+          },
+          {
+            name: "Chicago",
+            state: "IL",
+          },
+        ];
+
+        const citties = ["Madison", "Chicago", "Arizona"];
+
         res.render("homepage", {
-          posts,
+          cities,
           loggedIn: req.session.loggedIn,
         });
       })
