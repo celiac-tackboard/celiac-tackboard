@@ -25,7 +25,7 @@
 
 
 {{!-- user comments column --}}
-{{!-- <div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-success has-text-black">
@@ -33,20 +33,23 @@
         </article>
 
 {{#if comments.length}}
-<section>
-    <h2>Your Comments</h2>
     <ol>
+        <li>
         {{#each comments as |comment|}}
-            <li>
-                {{> comment-info comment}}
-            </li>
+            
+                {{> post-info comment}}
+         
         {{/each}}
+        </li>
     </ol>
-</section>
-{{/if}} --}}
+
+{{/if}}
+    </div>
+    </div>
+</div>
 
 {{!-- hard code comments --}}
-<div class="tile is-vertical is-4">
+{{!-- <div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-success has-text-black">
@@ -75,7 +78,7 @@
         </article>
         </div>
     </div>
-</div>
+</div> --}}
 
 {{!-- users upvoted posts  --}}
 {{!-- {{#if upvotes.length}}
@@ -116,46 +119,6 @@
 </div>
 
 
-{{!-- users favorited posts --}}
-{{!-- {{#if favorites.length}}
-<section>
-    <h2>Your Favorited Posts</h2>
-    <ol>
-        {{#each favorites as |favorite|}}
-            <li>
-                {{> favorite-info favorite}}
-            </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}} --}}
-
-{{!-- hard code favorited posts --}}
-
-{{!-- <div class="tile is-vertical is-3">
-    <div class="tile">
-        <div class="tile is-parent is-vertical">
-        <article class="tile is-child notification is-link has-text-black">
-            <p class="title">Your Faves</p>
-        </article>
-        <article class="tile is-child notification is-link">
-            <p class="title">Favorited Restaurant 1</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-link">
-            <p class="title">Favorited Restaurant 2</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-link">
-            <p class="title">Favorited Restaurant 3</p>
-            <p class="subtitle">Description</p>
-        </article>
-        </div>
-    </div>
-</div>
-</div>
- --}}
 <script src="/javascript/add-post.js"></script>
-{{!-- need to add scripts for favorited posts --}}
 <script src="/javascript/upvote.js"></script>
 <script src="/javascript/comment.js"></script>

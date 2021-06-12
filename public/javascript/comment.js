@@ -10,7 +10,7 @@ async function commentFormHandler(event) {
 
     if (comment_text) {
         // make sure this route is correct
-        const response = await fetch('/api/comments', {
+        const response = await fetch(`/api/comments`, {
             method: 'POST',
             // make sure these ids are correct
             body: JSON.stringify({
