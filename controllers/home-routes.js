@@ -67,35 +67,37 @@ router.get("/login", (req, res) => {
 
 router.get("/post/:id", (req, res) => {
   if (req.session.loggedIn) {
-    Post.findOne({
-      where: {
-        id: req.params.id,
-      },
-      attributes: [
-        "id",
-        "post_url",
-        "title",
-        "description",
-        "created_at",
-        [
-          sequelize.literal(
-            "(SELECT COUNT (*) FROM votes WHERE post.id = votes.post_id)"
-          ),
-          "votes_count",
-        ],
-      ],
-      include: [
-        {
-          model: Comment,
-          attributes: [
-            "id",
-            "comment_text",
-            "post_id",
-            "user_id",
-            "created_at",
-          ],
+    Post.findOne(
+      {
+        where: {
+          id: req.params.id
         },
-      ],
+        attributes: [
+          'id',
+          'title',
+          'description',
+          'post_url',
+          'rating',
+          'user_id',
+          'location_id',
+          'createdAt',
+          'updatedAt',
+          [sequelize.literal('(SELECT COUNT(*) FROM votes WHERE post_id = votes.post_id)'), 'votes']
+        ],
+        include: [
+          {
+            model: User,
+            attributes: ['username']
+          },
+          {
+            model: Comment,
+            attributes: ['id', 'comment_text', 'post_id', 'user_id'],
+            include: {
+              model: User,
+              attributes: ['username']
+            }
+          }
+        ]
     })
       .then((dbPostData) => {
         const post = dbPostData.get({ plain: true });

@@ -1,6 +1,6 @@
 {{!-- need to format with bulma --}}
 {{> post-info post}}
-{{> comments post}}
+{{> comments post.comments}}
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
@@ -13,7 +13,7 @@
     </div>
 </form>
 {{/if}}
-{{> comments post.comments}}
+
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>
