@@ -1,15 +1,19 @@
+<div class="tile">
+  <div class="tile is-parent is-vertical is-light">
+    <div class="card is-primary-box">
+      <div class="card-content">
+        <p class="title is-inline">{{title}}</p>
+        {{#if post_url}}
+        <a class="subtitle " href="{{post_url}}">{{post_url}}</a>
+        {{/if}}
+        <div class="content">
+          {{description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<article class="is-child notification is-primary" id="post">
-    <li>
-    <p class="title">
-        <a href="{{post_url}}" target="_blank">{{title}}</a>
-    </p>
-    <p class="subtitle">{{description}}</p>
-        <span>({{format_url post_url}})</span>
-            <div class="meta">
-            {{vote_count}} {{format_plural "point" vote_count}} by {{user.username}} on {{format_date created_at}}
-            |
-            <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
-            </div>
-    </li>
-</article>
+
+
+
