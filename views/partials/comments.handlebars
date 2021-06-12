@@ -1,15 +1,17 @@
 <div class="tile">
   <div class="tile is-parent is-vertical is-light">
+  <div class="title is-4 has-text-centered">Comments</div>
+  {{#each this}}
     <div class="card is-primary-box">
-      <div class="title is-4">Comments</div>
-      <div class="card-content">
-        {{#each this}}
+      <header class="card-header">
+        <div class="card-header-title block is-size-6 mb-0">By: {{user.username}}</div>
+      </header>
+      <div class="card-content py-2">
         <div class="content">
-          {{comment_text}}
-          {{user.username}}
+          <div class="block my-1 is-size-6">{{comment_text}}</div>
         </div>
-        {{/each}}
       </div>
     </div>
+  {{/each}}
   </div>
 </div>

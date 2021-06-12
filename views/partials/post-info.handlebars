@@ -1,15 +1,35 @@
 <div class="tile">
   <div class="tile is-parent is-vertical is-light">
     <div class="card is-primary-box">
+
       <div class="card-content">
-        <p class="title is-inline">{{title}}</p>
-        {{#if post_url}}
-        <a class="subtitle " href="{{post_url}}">{{post_url}}</a>
-        {{/if}}
-        <div class="content">
+        <header class="card-header">
+          <p class="title is-inline-block is-3">
+            {{title}}
+            {{#if post_url}}
+            <span>
+              <a class="subtitle is-italic has-text-link is-5" href="{{post_url}}">{{format_url post_url}}</a>
+            </span>
+            {{/if}}
+            {{#if rating}}
+            <span class="is-size-5 has-text-weight-normal">
+              | {{rating}} out of 5
+            </span>
+            {{/if}}
+          </p>
+        </header>
+
+        <div class="content is-size-5">
           {{description}}
         </div>
+
+        <footer class="card-footer">
+          <div class="card-footer-item is-size-6">
+            | By: {{user.username}} | Posted on: {{format_date createdAt}} |
+          </div>
+        </footer>
       </div>
+
     </div>
   </div>
 </div>

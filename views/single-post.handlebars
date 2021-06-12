@@ -1,20 +1,19 @@
 {{!-- need to format with bulma --}}
-{{> post-info post}}
-{{> comments post.comments}}
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
+<div class="columns is-centered my-2">
+    <div class="column is-half has-background-primary">
 
-    <div>
-        <button type="submit">add comment</button>
-        <button type="button" class="upvote-btn">upvote</button>
-    </div>
-</form>
-{{/if}}
+        {{> post-info post}}
+        {{#if loggedIn}}
+          <form>
+            
+          </form>
+        {{/if}}
 
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
-{{/if}}
+        {{#if loggedIn}}
+        <script src="/javascript/comment.js"></script>
+        <script src="/javascript/upvote.js"></script>
+        {{/if}}
+        {{> comments post.comments}}
+
+    </div>
+</div>
