@@ -5,9 +5,9 @@
         {{> post-info post}}
         {{#if loggedIn}}
           <div class="tile is-parent is-vertical">
-            <form>
+            <form id="comment-form">
               <div class="field">
-                <textarea class="textarea is-small is-primary" placeholder="Your comment here"></textarea>
+                <textarea class="textarea is-small is-primary" name="comment-text" placeholder="Your comment here"></textarea>
               </div>
 
               <div class="field is-grouped">

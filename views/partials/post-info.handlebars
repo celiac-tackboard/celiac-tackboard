@@ -25,7 +25,11 @@
 
         <footer class="card-footer">
           <div class="card-footer-item is-size-6">
-            | By: {{user.username}} | Posted on: {{format_date createdAt}} |
+            | By: {{user.username}} |
+            Posted on: {{format_date createdAt}} |
+            {{#if votes}}
+              {{votes}} {{format_plural "upvote" votes}} |
+            {{/if}}
           </div>
         </footer>
       </div>
