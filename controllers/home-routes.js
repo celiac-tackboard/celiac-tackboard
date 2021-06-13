@@ -47,7 +47,6 @@ router.get("/", (req, res) => {
     })
       .then((dbPostData) => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
-        console.log(posts);
 
         Location.findAll({}).then((dbLocationData) => {
           const locations = dbLocationData.map((location) => {
@@ -55,7 +54,6 @@ router.get("/", (req, res) => {
             data.push(location.get({ plain: true }));
           });
           data.push(...posts);
-          console.log(data);
         });
 
         res.render("homepage", {

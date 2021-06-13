@@ -1,84 +1,73 @@
 {{! calling the post-info partial to render each post from that specific city}}
-<nav class="level">
-  <div class="level-item title has-text-centered">
-    {{posts.city_name}},
-    {{posts.state}}
-    {{posts.users.username}}</div>
-</nav>
-
-{{#each posts.posts as |post|}}
-  <div class="tile">
-    <div class="tile is-parent is-vertical is-light">
-      <div class="card is-primary-box">
-
-        <div class="card-content">
-          <header class="card">
-            <nav class="level">
-              <div class="level-left">
-                <p class="level-item title has-text-centered">
-                  {{post.title}}
-                  <span>
-                    <a
-                      class="subtitle is-italic has-text-link is-5"
-                      href="{{post.post_url}}"
-                    >{{format_url post.post_url}}</a>
-                  </span>
-                </p>
-              </div>
-              <div class="level-right">
-                <p class="level-item subtitle is-6 has-text-centered">
-                  {{city_name}},
-                  {{state}}
-                </p>
-                {{#if post.rating}}
-                  <span class="is-size-5 has-text-weight-normal">
-                    |
-                    {{post.rating}}
-                    out of 5
-                  </span>
-                {{/if}}
-              </div>
-            </nav>
-            {{!-- <p class="title is-inline-block is-3">
-              {{title}}
-              {{#if post.post_url}}
-                <span>
+{{#if posts.length}}
+  {{#each posts}}
+    <nav class="level">
+      <div class="level-item title has-text-centered">
+        {{location.city_name}},
+        {{location.state}}
+      </div>
+    </nav>
+    <div class="tile">
+      <div class="tile is-parent is-vertical is-light">
+        <div class="card is-primary-box">
+          <div class="card-content">
+            <header class="card">
+              <nav class="level">
+                <div class="level-left">
+                  <p class="level-item title has-text-centered">
+                    <a href="/post/{{id}}">
+                      {{title}}
+                    </a>
+                  </p>
+                </div>
+                <p class="level-item has-text-centered">
                   <a
                     class="subtitle is-italic has-text-link is-5"
-                    href="{{post.post_url}}"
-                  >{{format_url post.post_url}}</a>
-                </span>
-              {{/if}}
-              {{#if rating}}
-                <span class="is-size-5 has-text-weight-normal">
-                  |
-                  {{rating}}
-                  out of 5
-                </span>
-              {{/if}}
-            </p> --}}
-          </header>
+                    href="{{post_url}}"
+                    target="_blank"
+                  >{{format_url post_url}}
+                  </a>
+                </p>
+                <div class="level-right">
+                  {{#if rating}}
+                    <span class="is-size-5 has-text-weight-normal">
+                      |
+                      {{rating}}
+                      out of 5
+                    </span>
+                  {{/if}}
+                </div>
+              </nav>
+            </header>
 
-          <div class="content is-size-5">
-            {{description}}
+            <div class="content is-size-5">
+              {{description}}
+            </div>
+
+            <footer class="card-footer">
+              <div class="card-footer-item is-size-6">
+                | By:
+                {{user.username}}
+                | Posted on:
+                {{format_date created_at}}
+                |
+                {{#if votes_count}}
+                  {{votes_count}}
+                  {{format_plural "upvote" votes}}
+                  |
+                {{/if}}
+              </div>
+            </footer>
           </div>
 
-          <footer class="card-footer">
-            <div class="card-footer-item is-size-6">
-              | By:
-              {{post.users.username}}
-              | Posted on:
-              {{format_date createdAt}}
-              |
-              {{#if votes}}
-                {{votes}}
-                {{format_plural "upvote" votes}}
-                |
-              {{/if}}
-            </div>
-          </footer>
         </div>
-
       </div>
     </div>
-  </div>{{/each}}
+  {{/each}}
+{{/if}}
+
+{{#unless posts.length}}
+  <header class="title is-2 has-text-centered has-text-light">No posts available
+    for selected city!</header>
+
+{{/unless}}

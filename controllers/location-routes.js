@@ -1,35 +1,51 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 
-const { Location, User, Post } = require("../models");
+const { Location, User, Post, Comment } = require("../models");
 
 router.get("/:city", (req, res) => {
   if (req.session.loggedIn) {
-    Location.findOne({
+    Post.findAll({
       where: {
-        city_name: req.params.city,
+        location_id: req.params.city,
       },
-      attributes: ["id", "city_name", "state"],
+      attributes: [
+        "id",
+        "post_url",
+        "title",
+        "description",
+        "created_at",
+        "location_id",
+        "rating",
+        [
+          sequelize.literal(
+            "(SELECT COUNT(*) FROM votes where post.id = votes.post_id)"
+          ),
+          "votes_count",
+        ],
+      ],
       include: [
         {
+          model: Comment,
+          attributes: [
+            "id",
+            "comment_text",
+            "post_id",
+            "user_id",
+            "created_at",
+          ],
           include: {
             model: User,
             attributes: ["username"],
           },
-          model: Post,
-          attributes: [
-            "title",
-            "description",
-            "post_url",
-            "rating",
-            "user_id",
-            "createdAt",
-            "updatedAt",
-          ],
         },
         {
           model: User,
-          attributes: ["username", "email"],
+          attributes: ["username"],
+        },
+        {
+          model: Location,
+          attributes: ["city_name", "state"],
         },
       ],
     })
@@ -37,9 +53,8 @@ router.get("/:city", (req, res) => {
         if (!dbPostData) {
           res.status(404);
         }
-        const posts = dbPostData.get({ plain: true });
+        const posts = dbPostData.map((post) => post.get({ plain: true }));
 
-        console.log(posts);
         res.render("city-posts", {
           posts,
           loggedIn: req.session.loggedIn,

@@ -2,17 +2,17 @@
   {{! using a partial file to call the left tile; the tille will display 
     different information based on if the user is loged in or not}}
   <div class="tile is-parent">
-    <article class="tile is-child notification is-success">
+    <article class="tile is-child notification is-primary">
       {{#each data}}
         {{#if city_name}}
-          <li class="button is-warning box">{{city_name}}</li>
+          <li class="button is-dark is-outlined box">{{city_name}}</li>
         {{/if}}
       {{/each}}
     </article>
   </div>
 
   {{! right side of the tile were all the posts will be displayed}}
-  <div class="tile is-8">
+  <div class="tile is-8 has-background-dark">
     <div class="tile is-vertical">
       {{#each data}}
         {{#if title}}
@@ -22,7 +22,9 @@
               <nav class="level">
                 <div class="level-left">
                   <p class="level-item title has-text-centered">
-                    {{title}}
+                    <a href="/post/{{id}}">
+                      {{title}}
+                    </a>
                   </p>
                 </div>
                 <div class="level-right">
@@ -47,53 +49,18 @@
                   <a href="{{post_url}}"> {{post_url}}</a>
                 </p>
                 <p class="card-footer-item">
+                  By:
                   {{user.username}}
                 </p>
-                <p class="card-footer-item has-text-centered">
-                  <button class="button">
-                    upvote
-                  </button>
-                </p>
                 <p class="card-footer-item">
-                  {{created_at}}
+                  {{format_date created_at}}
                 </p>
               </footer>
             </div>
           </div>
         {{/if}}
       {{/each}}
-      {{! <article class="tile is-child notification is-primary">
-          <p class="title">Post</p>
-          <p class="subtitle">Restaurant:</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-          <p class="title">Post</p>
-          <p class="subtitle">Restaurant:</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-          <p class="title">Post</p>
-          <p class="subtitle">Restaurant:</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-          <p class="title">Post</p>
-          <p class="subtitle">Restaurant:</p>
-        </article> }}
-
-      {{!-- <div class="tile is-parent is-vertical" >
-         {{#each data}}
-        {{> post-info this}}
-        {{/each}}
-      </div>  --}}
     </div>
-    {{! <div class="tile is-parent ">
-      <article class="tile is-child notification is-danger">
-        <p class="title">Wide tile</p>
-        <p class="subtitle">Aligned with the right tile</p>
-        <div class="content">
-          <!-- Content -->
-        </div>
-      </article>
-    </div> }}
   </div>
 
 </div>
