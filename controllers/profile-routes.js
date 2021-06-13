@@ -4,64 +4,25 @@ const { Post, User, Comment, Location } = require('../models');
 const authguard = require('../utils/auth');
 
 
-router.get('/', authguard, (req, res) => {
-    User.findAll({
-        attributes: { exclude: ["password"] },
-        where: {
-            id: req.session.id
-        },
-        include: [
-            {
-                model: Post,
-                attributes: [
-                    'id',
-                    'post_url',
-                    'title',
-                    'rating',
-                    'description',
-                    'created_at',
-                    // [sequelize.literal('(SELECT COUNT(*) FROM votes WHERE post.id = votes.post_id)'), 'votes_count']
-                ]
-            },
-            {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            // {
-            //     model: User,
-            //     attributes: ['username']
-            // }
-        ]
-    })
-        .then(dbUserData => {
-            const posts = dbUserData.map(post => post.get({ plain: true }));
-            res.render('profile', { posts, loggedIn: true });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
-});
-
 // router.get('/', authguard, (req, res) => {
-//     Post.findAll({
+//     User.findAll({
+//         attributes: { exclude: ["password"] },
 //         where: {
-//             user_id: req.session.user_id
+//             id: req.session.id
 //         },
-//         attributes: [
-//             'id',
-//             'post_url',
-//             'title',
-//             'rating',
-//             'description',
-//             'created_at',
-//             [sequelize.literal('(SELECT COUNT(*) FROM votes WHERE post.id = votes.post_id)'), 'votes_count']
-//         ],
 //         include: [
+//             {
+//                 model: Post,
+//                 attributes: [
+//                     'id',
+//                     'post_url',
+//                     'title',
+//                     'rating',
+//                     'description',
+//                     'created_at',
+//                     // [sequelize.literal('(SELECT COUNT(*) FROM votes WHERE post.id = votes.post_id)'), 'votes_count']
+//                 ]
+//             },
 //             {
 //                 model: Comment,
 //                 attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
@@ -70,21 +31,62 @@ router.get('/', authguard, (req, res) => {
 //                     attributes: ['username']
 //                 }
 //             },
-//             {
-//                 model: User,
-//                 attributes: ['username']
-//             }
+//             // {
+//             //     model: User,
+//             //     attributes: ['username']
+//             // }
 //         ]
 //     })
-//         .then(dbPostData => {
-//             const posts = dbPostData.map(post => post.get({ plain: true }));
+//         .then(dbUserData => {
+//             const posts = dbUserData.map(post => post.get({ plain: true }));
 //             res.render('profile', { posts, loggedIn: true });
+
 //         })
 //         .catch(err => {
 //             console.log(err);
 //             res.status(500).json(err);
 //         });
+        
 // });
+
+router.get('/', authguard, (req, res) => {
+    Post.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
+        attributes: [
+            'id',
+            'post_url',
+            'title',
+            'rating',
+            'description',
+            'created_at',
+            [sequelize.literal('(SELECT COUNT(*) FROM votes WHERE post.id = votes.post_id)'), 'votes_count']
+        ],
+        include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+        .then(dbPostData => {
+            const posts = dbPostData.map(post => post.get({ plain: true }));
+            res.render('profile', { posts, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 router.get('/edit/:id', authguard, (req, res) => {
     Post.findOne({
