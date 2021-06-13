@@ -23,15 +23,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const hbs = exphbs.create({
-  helpers: {
-    first: function (index) {
-      if (index == 0) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
+  helpers,
 });
 
 // set up and run handlebars

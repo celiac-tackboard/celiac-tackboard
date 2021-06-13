@@ -12,6 +12,7 @@ router.get("/", (req, res) => {
         "title",
         "description",
         "created_at",
+        "location_id",
         [
           sequelize.literal(
             "(SELECT COUNT(*) FROM votes where post.id = votes.post_id)"
@@ -38,6 +39,10 @@ router.get("/", (req, res) => {
           model: User,
           attributes: ["username"],
         },
+        {
+          model: Location,
+          attributes: ["city_name", "state"],
+        },
       ],
     })
       .then((dbPostData) => {
@@ -48,9 +53,10 @@ router.get("/", (req, res) => {
           const locations = dbLocationData.map((location) => {
             // location.get({ plain: true });
             data.push(location.get({ plain: true }));
+            console.log(location);
           });
           data.push(...posts);
-          console.log(locations);
+          console.log(data);
         });
 
         res.render("homepage", {
