@@ -1,3 +1,5 @@
+{{!-- ///// User Profile Posts \\\\\ --}}
+
 {{#each this}}
 <div class="tile">
   <div class="tile is-parent is-vertical is-light">
@@ -6,7 +8,9 @@
       <div class="card-content">
         <header class="card-header">
           <p class="title is-inline-block is-3">
-            {{title}}
+            <a id="post-title" href="/post/{{id}}" class="is-italic has-text-link">
+              {{title}}
+            </a>
             {{#if post_url}}
             <span>
               <a class="subtitle is-italic has-text-link is-5" href="{{post_url}}">{{format_url post_url}}</a>
@@ -38,9 +42,4 @@
     </div>
   </div>
 </div>
-
-
-
-
-
 {{/each}}

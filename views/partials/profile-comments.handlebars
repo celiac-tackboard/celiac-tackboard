@@ -1,9 +1,11 @@
+{{!-- ///// User Profile Comments Partial \\\\\ --}}
+
 {{#each this}}
   <div class="tile">
   <div class="tile is-parent is-vertical is-light">
     <div class="card is-primary-box mb-1">
       <header class="card-header">
-        <div class="card-header-title block is-size-6 mb-0">{{post.title}}</div>
+        <a class="card-header-title block has-text-link is-size-6 is-italic mb-0" href="/post/{{post.id}}">{{post.title}}</a>
       </header>
       <div class="card-content py-2">
         <div class="content">
