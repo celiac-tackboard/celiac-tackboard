@@ -1,0 +1,46 @@
+/* So that starry package loads from public folder */
+
+.Starry {
+  display: inline-block !important;
+  position: relative !important;
+}
+.Starry:hover > .Starry-active:not(.Starry-static) {
+  display:inline !important;
+}
+.Starry > .Starry-blank,
+.Starry > .Starry-active,
+.Starry > .Starry-hover {
+  display: flex !important;
+  /* flex-direction: row-reverse;
+  justify-content: flex-end; */
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+.Starry > .Starry-active,
+.Starry > .Starry-hover {
+  position: absolute !important;
+  top: 0px !important;
+  left: 0px !important;
+}
+.Starry > .Starry-active {
+  width: fit-content !important;
+}
+.Starry > .Starry-hover {
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+}
+.Starry > .Starry-hover > .Starry-star {
+  opacity: .5 ;
+  cursor: pointer;
+}
+.Starry > .Starry-hover > .Starry-star:hover,
+.Starry > .Starry-hover > .Starry-star:hover ~ .Starry-star {
+  opacity: 1;
+}
+.Starry .Starry-star {
+  display: inline !important;
+  margin: 0 !important;
+  padding: 2px !important;
+}
+
+/*# sourceMappingURL=starry.css.map */

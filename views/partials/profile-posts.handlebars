@@ -1,3 +1,6 @@
+{{!-- ///// User Profile Posts Partial \\\\\ --}}
+
+{{#each this}}
 <div class="tile">
   <div class="tile is-parent is-vertical is-light">
     <div class="card is-primary-box">
@@ -5,21 +8,18 @@
       <div class="card-content">
         <header class="card-header">
           <p class="title is-inline-block is-3">
-            {{title}}
+            <a id="post-title" href="/post/{{id}}" class="is-italic has-text-link">
+              {{title}}
+            </a>
             {{#if post_url}}
-              <span>
-                <a
-                  class="subtitle is-italic has-text-link is-5"
-                  href="{{post_url}}"
-                >{{format_url post_url}}</a>
-              </span>
+            <span>
+              <a class="subtitle is-italic has-text-link is-5" href="{{post_url}}">{{format_url post_url}}</a>
+            </span>
             {{/if}}
             {{#if rating}}
-              <span class="is-size-5 has-text-weight-normal">
-                |
-                {{rating}}
-                out of 5
-              </span>
+            <span class="is-size-5 has-text-weight-normal">
+              | {{rating}} out of 5
+            </span>
             {{/if}}
           </p>
         </header>
@@ -30,15 +30,10 @@
 
         <footer class="card-footer">
           <div class="card-footer-item is-size-6">
-            | By:
-            {{user.username}}
-            | Posted on:
-            {{format_date createdAt}}
-            |
+            | By: {{user.username}} |
+            Posted on: {{format_date createdAt}} |
             {{#if votes}}
-              {{votes}}
-              {{format_plural "upvote" votes}}
-              |
+              {{votes}} {{format_plural "upvote" votes}} |
             {{/if}}
           </div>
         </footer>
@@ -47,3 +42,4 @@
     </div>
   </div>
 </div>
+{{/each}}

@@ -1,4 +1,13 @@
+
 /* not sure if we need a separate css file */
 .leftBar {
   border: 1px solid black;
 }
+
+.fix-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  overflow: hidden;
+}
+

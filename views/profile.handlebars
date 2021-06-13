@@ -1,46 +1,38 @@
-{{!-- leaving space for navbar  --}}
+
 <div class="tile is-ancestor mx-2 my-2">
 {{!-- user posts column --}}
-{{#if posts.length}}
-<section>
-    <h2>Your Posts</h2>
-    <ol>
-        {{#each posts as |post|}}
-            <li>
-                {{> post-info post}}
-                {{!-- did not include edit, don't know if we want to add edit post yet --}}
-            </li>
-        {{/each}}
-    </ol>
-</section>
-{{/if}}
-
-{{!-- hard code for posts --}}
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-primary has-text-black">
             <p class="title">Your Posts</p>
         </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 1</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 2</p>
-            <p class="subtitle">Description</p>
-        </article>
-        <article class="tile is-child notification is-primary">
-            <p class="title">Post Restaurant 2</p>
-            <p class="subtitle">Description</p>
-        </article>
+{{#if posts.length}}
 
-        </div>
+    <ol>
+        {{#each posts as |post|}}
+            
+                {{> post-info post}}
+                {{!-- did not include edit, don't know if we want to add edit post yet --}}
+            
+        {{/each}}
+    </ol>
+
+{{/if}}
+    </div>
     </div>
 </div>
 
+
 {{!-- user comments column --}}
-{{!-- {{#if comments.length}}
+{{!-- <div class="tile is-vertical is-3">
+    <div class="tile">
+        <div class="tile is-parent is-vertical">
+        <article class="tile is-child notification is-success has-text-black">
+            <p class="title">Your Comments</p>
+        </article>
+
+{{#if comments.length}}
 <section>
     <h2>Your Comments</h2>
     <ol>
@@ -54,7 +46,7 @@
 {{/if}} --}}
 
 {{!-- hard code comments --}}
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-success has-text-black">
@@ -101,7 +93,7 @@
 
 {{!-- hard code upvoted posts --}}
 
-<div class="tile is-vertical is-3">
+<div class="tile is-vertical is-4">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-info has-text-black">
@@ -140,11 +132,11 @@
 
 {{!-- hard code favorited posts --}}
 
-<div class="tile is-vertical is-3">
+{{!-- <div class="tile is-vertical is-3">
     <div class="tile">
         <div class="tile is-parent is-vertical">
         <article class="tile is-child notification is-link has-text-black">
-            <p class="title">Your Posts</p>
+            <p class="title">Your Faves</p>
         </article>
         <article class="tile is-child notification is-link">
             <p class="title">Favorited Restaurant 1</p>
@@ -162,8 +154,8 @@
     </div>
 </div>
 </div>
-
-{{!-- <script src="/javascript/add-post.js"></script>
+ --}}
+<script src="/javascript/add-post.js"></script>
 {{!-- need to add scripts for favorited posts --}}
 <script src="/javascript/upvote.js"></script>
-<script src="/javascript/comment.js"></script> --}}
+<script src="/javascript/comment.js"></script>

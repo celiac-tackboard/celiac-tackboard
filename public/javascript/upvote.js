@@ -7,8 +7,8 @@ async function upvoteClickHandler(event) {
 
     // make sure these routes are correct
     const response = await fetch('/api/posts/upvote', {
-        method: 'PUT',
-        bod: JSON.stringify({
+        method: "PUT",
+        body: JSON.stringify({
             post_id: id
         }),
         headers: {
@@ -24,4 +24,4 @@ async function upvoteClickHandler(event) {
 }
 
 // make sure these id / elements are correct
-document.querySelector('.upvote-btn').addEventListener('click', upvoteClickHandler);
+document.querySelector('#upvote-btn').addEventListener('click', upvoteClickHandler);

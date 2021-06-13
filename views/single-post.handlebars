@@ -1,18 +1,47 @@
 {{!-- need to format with bulma --}}
-{{> post-info post}}
-{{#if loggedIn}}
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
+<div class="columns is-centered my-2">
+    <div class="column is-half has-background-primary px-4">
 
-    <div>
-        <button type="submit">add comment</button>
-        <button type="button" class="upvote-btn">upvote</button>
+        {{> post-info post}}
+        {{#if loggedIn}}
+          <div class="tile is-parent is-vertical">
+            <form id="comment-form">
+              <div class="field">
+                <textarea class="textarea is-small is-primary" name="comment-text" placeholder="Your comment here"></textarea>
+              </div>
+
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-primary is-light" type="submit">
+                      <span class="icon is-small">
+                        <i class="fas fa-comment"></i>
+                      </span>
+                      <span>
+                        Submit Comment
+                      </span>
+                  </button>
+                </div>
+
+                <div class="control">
+                  <button id="upvote-btn" class="button is-primary is-light" type="button">
+                    <span class="icon is-small">
+                      <i class="fas fa-arrow-up"></i>
+                    </span>
+                    <span>
+                      Upvote  
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        {{/if}}
+
+        {{#if loggedIn}}
+        <script src="/javascript/comment.js"></script>
+        <script src="/javascript/upvote.js"></script>
+        {{/if}}
+        {{> comments post.comments}}
+
     </div>
-</form>
-{{/if}}
-{{> comments post.comments}}
-{{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
-<script src="/javascript/upvote.js"></script>
+</div>
