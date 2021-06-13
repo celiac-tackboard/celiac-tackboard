@@ -1,0 +1,11 @@
+{{#if comments.length}}
+  <header class="title is-2 has-text-centered">Your Comments</header>
+  <div class="columns is-centered my-2">
+    <div class="column has-background-primary is-half">
+      {{> profile-comments comments}}
+    </div>
+  </div>
+{{/if}}
+{{#unless comments.length}}
+  <header class="title is-2 has-text-centered">You haven't made any comments!</header>
+{{/unless}}

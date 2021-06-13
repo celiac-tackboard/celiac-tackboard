@@ -1,0 +1,19 @@
+{{#each this}}
+  <div class="tile">
+  <div class="tile is-parent is-vertical is-light">
+    <div class="card is-primary-box mb-1">
+      <header class="card-header">
+        <div class="card-header-title block is-size-6 mb-0">{{post.title}}</div>
+      </header>
+      <div class="card-content py-2">
+        <div class="content">
+          <div class="block my-1 is-size-6">{{comment_text}}</div>
+        </div>
+        <footer class="card-footer">
+          <div class="footer-item has-size-6">On: {{format_date createdAt}}</div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}

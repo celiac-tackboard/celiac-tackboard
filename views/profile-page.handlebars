@@ -1,0 +1,11 @@
+{{#if posts.length}}
+  <header class="title is-2 has-text-centered">Your Posts</header>
+  <div class="columns is-centered my-2">
+    <div class="column is-half has-background-primary">
+      {{> profile-posts posts}}
+    </div>
+  </div>
+{{/if}}
+{{#unless posts.length}}
+  <header class="title is-2">You haven't made any posts yet!</header>
+{{/unless}}
