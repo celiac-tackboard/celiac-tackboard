@@ -50,6 +50,8 @@ router.get("/", (req, res) => {
         if (!dbPostData) {
           res.status(404).json({ message: "no Post data found" });
           return;
+        }  else {
+          data = [];
         }
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
@@ -77,7 +79,7 @@ router.get("/", (req, res) => {
     } else {
       res.render("login");
     }
-    data = [];
+    // data = [];
 });
 
 router.get("/login", (req, res) => {
