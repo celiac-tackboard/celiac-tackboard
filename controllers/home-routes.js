@@ -51,8 +51,8 @@ router.get("/", (req, res) => {
 
         Location.findAll({}).then((dbLocationData) => {
           const locations = dbLocationData.map((location) => {
-            location.get({ plain: true });
-            data.push(locations);//(location.get({ plain: true }));
+            // location.get({ plain: true });
+            data.push(location.get({ plain: true }));
           });
           data.push(...posts);
           console.log(data);
