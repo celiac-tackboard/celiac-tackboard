@@ -70,7 +70,7 @@ router.get("/", (req, res) => {
   } else {
     res.render("login");
   }
-  data = [];
+  // data = [];
 });
 
 router.get("/login", (req, res) => {
