@@ -24,6 +24,7 @@
                     </a>
                   </p>
                 </div>
+                {{#if post_url}}
                 <p class="level-item has-text-centered">
                   <a
                     class="subtitle is-italic has-text-link is-5"
@@ -32,6 +33,7 @@
                   >{{format_url post_url}}
                   </a>
                 </p>
+                {{/if}}
                 <div class="level-right">
                   {{#if rating}}
                     <span class="is-size-5 has-text-weight-normal">

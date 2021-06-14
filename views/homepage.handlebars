@@ -43,6 +43,7 @@
                 {{! </div> }}
               </div>
               <nav class="level">
+                {{#if post_url}}
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Link</p>
@@ -50,9 +51,10 @@
                       class="title has-text-link is-italic is-6"
                       href="{{post_url}}"
                     >
-                      {{post_url}}</a>
+                      {{format_url post_url}}</a>
                   </div>
                 </div>
+                {{/if}}
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Username</p>
