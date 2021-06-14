@@ -3,8 +3,8 @@ const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
 
 router.get("/", (req, res) => {
+  let data = [];
   if (req.session.loggedIn) {
-    let data = [];
     Post.findAll({
       order: [["created_at", "DESC"]],
       attributes: [
