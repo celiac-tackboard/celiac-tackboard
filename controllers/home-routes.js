@@ -71,12 +71,12 @@ router.get("/", (req, res) => {
           data,
           loggedIn: req.session.loggedIn,
         });
-        data = [];
       })
       .catch((err) => {
         console.log(err);
         res.status(500).json(err);
       });
+      data = [];
   } else {
     res.render("login");
   }
