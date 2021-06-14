@@ -3,14 +3,14 @@
 {{#if comments.length}}
   <header class="title is-2 has-text-centered">Your Comments</header>
   <div class="columns is-centered">
-    <div class="column is-half px-0">
+    <div class="column is-three-quarters px-0">
       <div class="block has-text-centered">
         <button id="view-user-posts-button" class="button is-primary is-medium is-fullwidth">View your posts</button>
     </div>
   </div>
 </div>
   <div class="columns is-centered my-2">
-    <div class="column has-background-primary is-half">
+    <div class="column has-background-primary is-three-quarters">
       {{> profile-comments comments}}
     </div>
   </div>
@@ -18,7 +18,7 @@
 {{#unless comments.length}}
   <header class="title is-2 has-text-centered has-text-light">You haven't made any comments!</header>
   <div class="columns is-centered">
-    <div class="column is-half px-0">
+    <div class="column is-three-quarters px-0">
       <div class="block has-text-centered">
         <button id="view-user-posts-button" class="button is-primary is-medium is-fullwidth">View your posts</button>
       </div>

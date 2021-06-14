@@ -6,6 +6,7 @@ let data = [];
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
     Post.findAll({
+      order: [["created_at", "DESC"]],
       attributes: [
         "id",
         "post_url",
@@ -54,6 +55,7 @@ router.get("/", (req, res) => {
             data.push(location.get({ plain: true }));
           });
           data.push(...posts);
+          console.log(data);
         });
 
         res.render("homepage", {

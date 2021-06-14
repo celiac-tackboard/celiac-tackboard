@@ -1,18 +1,22 @@
 {{! calling the post-info partial to render each post from that specific city}}
+
 {{#if posts.length}}
+  <nav class="level">
+    <div
+      class="level-item title has-text-centered has-text-light box has-background-dark"
+    >
+      {{posts.0.location.city_name}},
+      {{posts.0.location.state}}
+    </div>
+  </nav>
   {{#each posts}}
-    <nav class="level">
-      <div class="level-item title has-text-centered">
-        {{location.city_name}},
-        {{location.state}}
-      </div>
-    </nav>
-    <div class="tile">
+
+    <div class="tile box">
       <div class="tile is-parent is-vertical is-light">
         <div class="card is-primary-box">
           <div class="card-content">
             <header class="card">
-              <nav class="level">
+              <nav class="level box">
                 <div class="level-left">
                   <p class="level-item title has-text-centered">
                     <a href="/post/{{id}}">
@@ -31,33 +35,57 @@
                 <div class="level-right">
                   {{#if rating}}
                     <span class="is-size-5 has-text-weight-normal">
-                      |
+
                       {{rating}}
-                      out of 5
+                      out of 5 stars
                     </span>
                   {{/if}}
                 </div>
               </nav>
             </header>
 
-            <div class="content is-size-5">
+            <div class="content is-size-5 pt-3 pb-1">
               {{description}}
             </div>
 
-            <footer class="card-footer">
-              <div class="card-footer-item is-size-6">
-                | By:
-                {{user.username}}
-                | Posted on:
-                {{format_date created_at}}
-                |
-                {{#if votes_count}}
-                  {{votes_count}}
-                  {{format_plural "upvote" votes}}
-                  |
-                {{/if}}
+            <nav class="level">
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Username</p>
+                  <p class="title is-6">
+                    {{user.username}}
+                  </p>
+                </div>
               </div>
-            </footer>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">
+                    {{format_plural "upvote" votes_count}}
+                  </p>
+                  <p class="title is-6">
+                    {{votes_count}}
+                  </p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">
+                    {{format_plural "Comment" comments.length}}
+                  </p>
+                  <p class="title is-6">
+                    {{comments.length}}
+                  </p>
+                </div>
+              </div>
+              <div class="level-item has-text-centered">
+                <div>
+                  <p class="heading">Created On</p>
+                  <p class="title is-6">
+                    {{format_date created_at}}
+                  </p>
+                </div>
+              </div>
+            </nav>
           </div>
 
         </div>
@@ -67,6 +95,7 @@
 {{/if}}
 
 {{#unless posts.length}}
+
   <header class="title is-2 has-text-centered has-text-light">No posts available
     for selected city!</header>
 

@@ -9,6 +9,7 @@ router.get("/:city", (req, res) => {
       where: {
         location_id: req.params.city,
       },
+      order: [["created_at", "DESC"]],
       attributes: [
         "id",
         "post_url",
@@ -55,6 +56,7 @@ router.get("/:city", (req, res) => {
         }
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
+        console.log(posts);
         res.render("city-posts", {
           posts,
           loggedIn: req.session.loggedIn,

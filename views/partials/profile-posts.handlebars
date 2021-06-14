@@ -1,45 +1,75 @@
-{{!-- ///// User Profile Posts Partial \\\\\ --}}
+{{! ///// User Profile Posts Partial \\\\\ }}
 
 {{#each this}}
-<div class="tile">
-  <div class="tile is-parent is-vertical is-light">
-    <div class="card is-primary-box">
+  <div class="tile">
+    <div class="tile is-parent is-vertical is-light">
+      <div class="card is-primary-box">
 
-      <div class="card-content">
-        <header class="card-header">
-          <p class="title is-inline-block is-3">
-            <a id="post-title" href="/post/{{id}}" class="is-italic has-text-link">
-              {{title}}
-            </a>
+        <div class="card-content">
+          <nav class="level box">
+            <div class="level-left">
+              <p class="level-item title has-text-centered">
+                <a href="/post/{{id}}">
+                  {{title}}
+                </a>
+              </p>
+            </div>
             {{#if post_url}}
-            <span>
-              <a class="subtitle is-italic has-text-link is-5" href="{{post_url}}">{{format_url post_url}}</a>
-            </span>
+              <p class="level-item has-text-centered">
+                <a
+                  class="subtitle is-italic has-text-link is-5"
+                  href="{{post_url}}"
+                  target="_blank"
+                >{{format_url post_url}}
+                </a>
+              </p>
             {{/if}}
-            {{#if rating}}
-            <span class="is-size-5 has-text-weight-normal">
-              | {{rating}} out of 5
-            </span>
-            {{/if}}
-          </p>
-        </header>
+            <div class="level-right">
+              {{#if rating}}
+                <span class="is-size-5 has-text-weight-normal">
 
-        <div class="content is-size-5">
-          {{description}}
+                  {{rating}}
+                  out of 5 stars
+                </span>
+              {{/if}}
+            </div>
+          </nav>
+          <div class="content is-size-5">
+            {{description}}
+          </div>
+
+          <nav class="level">
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Username</p>
+                <p class="title is-6">
+                  {{user.username}}
+                </p>
+              </div>
+            </div>
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">
+                  {{format_plural "upvote" votes}}
+                </p>
+                <p class="title is-6">
+                  {{votes}}
+                </p>
+              </div>
+            </div>
+
+            <div class="level-item has-text-centered">
+              <div>
+                <p class="heading">Created On</p>
+                <p class="title is-6">
+                  {{format_date createdAt}}
+                </p>
+              </div>
+            </div>
+          </nav>
         </div>
 
-        <footer class="card-footer">
-          <div class="card-footer-item is-size-6">
-            | By: {{user.username}} |
-            Posted on: {{format_date createdAt}} |
-            {{#if votes}}
-              {{votes}} {{format_plural "upvote" votes}} |
-            {{/if}}
-          </div>
-        </footer>
       </div>
-
     </div>
   </div>
-</div>
 {{/each}}

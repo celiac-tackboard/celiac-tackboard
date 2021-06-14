@@ -1,6 +1,5 @@
 function getCityPosts(event) {
   event.preventDefault();
-  console.log(event.target.outerText);
   const city = event.target.outerText;
   let city_id = 0;
 
