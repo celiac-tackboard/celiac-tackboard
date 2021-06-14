@@ -47,9 +47,18 @@ router.get("/", (req, res) => {
       ],
     })
       .then((dbPostData) => {
+        if (!dbPostData) {
+          res.status(404).json({ message: "no Post data found" });
+          return;
+        }
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
         Location.findAll({}).then((dbLocationData) => {
+          if (!dbLocationData) {
+            res.status(404).json({ message: "no location data found" });
+            return;
+          }
+
           const locations = dbLocationData.map((location) => {
             // location.get({ plain: true });
             data.push(location.get({ plain: true }));
