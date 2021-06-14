@@ -64,6 +64,7 @@ router.get("/", (req, res) => {
               data.push(location.get({ plain: true }));
             });
             data.push(...posts);
+            console.log(data);
         });
         res.render("homepage", {
           data, 
