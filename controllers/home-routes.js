@@ -71,6 +71,7 @@ router.get("/", (req, res) => {
           data,
           loggedIn: req.session.loggedIn,
         });
+        data = [];
       })
       .catch((err) => {
         console.log(err);
@@ -79,7 +80,6 @@ router.get("/", (req, res) => {
   } else {
     res.render("login");
   }
-  // data = [];
 });
 
 router.get("/login", (req, res) => {
