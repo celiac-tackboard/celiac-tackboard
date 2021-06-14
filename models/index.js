@@ -62,14 +62,5 @@ Post.belongsTo(Location, {
   foreignKey: "location_id",
 });
 
-User.belongsToMany(Location, {
-  through: Post,
-  foreignKey: "user_id",
-});
-
-Location.belongsToMany(User, {
-  through: Post,
-  foreignKey: "location_id",
-});
 
 module.exports = { User, Post, Votes, Comment, Location };
