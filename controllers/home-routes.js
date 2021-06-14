@@ -1,9 +1,9 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
+let data = [];
 
 router.get("/", (req, res) => {
-  let data = [];
   if (req.session.loggedIn) {
     Post.findAll({
       order: [["created_at", "DESC"]],
@@ -64,11 +64,9 @@ router.get("/", (req, res) => {
             data.push(location.get({ plain: true }));
           });
           data.push(...posts);
-          console.log(data);
         });
-
         res.render("homepage", {
-          data,
+          data, 
           loggedIn: req.session.loggedIn,
         });
       })
@@ -76,10 +74,10 @@ router.get("/", (req, res) => {
         console.log(err);
         res.status(500).json(err);
       });
-      data = [];
-  } else {
-    res.render("login");
-  }
+    } else {
+      res.render("login");
+    }
+    data = [];
 });
 
 router.get("/login", (req, res) => {
