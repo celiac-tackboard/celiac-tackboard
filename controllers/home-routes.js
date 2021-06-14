@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
-let data = [];
+// let data = [];
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -47,6 +47,7 @@ router.get("/", (req, res) => {
       ],
     })
       .then((dbPostData) => {
+        let data = [];
         if (!dbPostData) {
           res.status(404).json({ message: "no Post data found" });
           return;
@@ -58,13 +59,11 @@ router.get("/", (req, res) => {
             res.status(404).json({ message: "no location data found" });
             return;
           }
-          if (!data.length) {
             const locations = dbLocationData.map((location) => {
               // location.get({ plain: true });
               data.push(location.get({ plain: true }));
             });
             data.push(...posts);
-          }
         });
         res.render("homepage", {
           data, 
@@ -78,7 +77,6 @@ router.get("/", (req, res) => {
     } else {
       res.render("login");
     }
-    data = [];
 });
 
 router.get("/login", (req, res) => {
