@@ -1,6 +1,8 @@
 <div class="tile is-ancestor mx-2 my-2">
   {{! using a partial file to call the left tile; the tille will display 
     different information based on if the user is loged in or not}}
+
+    {{#if data}}
   <div class="tile is-parent">
     <article class="tile is-child notification is-primary">
       {{#each data}}
@@ -100,6 +102,10 @@
   </div>
 
 </div>
+{{else}}
+  <header class="title is-2 has-text-centered has-text-light">No Posts have been created</header>
+
+{{/if}}
 {{! end of first tile}}
 
 <script type="module" src="/javascript/homepage.js"></script>
