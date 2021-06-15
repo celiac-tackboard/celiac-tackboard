@@ -24,4 +24,22 @@ router.post("/", (req, res) => {
       });
 });
 
+router.delete('/:id', (req, res) => {
+  Location.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbLocationData => {
+      if (!dbLocationData) {
+        res.status(404).json({ message: "no location found with this ID" });
+        return;
+      }
+      res.json(dbLocationData);
+    })
+    .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
 module.exports = router;
