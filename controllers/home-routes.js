@@ -66,7 +66,6 @@ router.get("/", (req, res) => {
           });
           data.push(...posts);
         });
-
         res.render("homepage", {
           data,
           loggedIn: req.session.loggedIn,
