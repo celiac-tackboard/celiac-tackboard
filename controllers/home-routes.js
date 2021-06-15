@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const sequelize = require("../config/connection");
 const { Post, User, Comment, Location } = require("../models");
-// let data = [];
+let data = [];
 
 router.get("/", (req, res) => {
   if (req.session.loggedIn) {
@@ -54,7 +54,7 @@ router.get("/", (req, res) => {
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
         Location.findAll({}).then((dbLocationData) => {
-          let data = [];
+          data = [];
           if (!dbLocationData) {
             res.status(404).json({ message: "no location data found" });
             return;
