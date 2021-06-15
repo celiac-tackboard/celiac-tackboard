@@ -39,8 +39,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(session(sess));
 
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use(routes);
 
 sequelize

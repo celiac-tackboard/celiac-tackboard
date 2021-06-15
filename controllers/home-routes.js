@@ -4,7 +4,6 @@ const { Post, User, Comment, Location } = require("../models");
 let data = [];
 
 router.get("/", (req, res) => {
-  data = [];
   if (req.session.loggedIn) {
     Post.findAll({
       order: [["created_at", "DESC"]],
@@ -67,6 +66,7 @@ router.get("/", (req, res) => {
           data.push(...posts);
           console.log(data);
         });
+        console.log(data);
 
         res.render("homepage", {
           data,
@@ -80,6 +80,7 @@ router.get("/", (req, res) => {
   } else {
     res.render("login");
   }
+  data = [];
 });
 
 router.get("/login", (req, res) => {
