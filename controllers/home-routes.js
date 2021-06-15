@@ -51,6 +51,7 @@ router.get("/", (req, res) => {
           res.status(404).json({ message: "no Post data found" });
           return;
         }
+        data = [];
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
         Location.findAll({}).then((dbLocationData) => {
@@ -80,7 +81,6 @@ router.get("/", (req, res) => {
   } else {
     res.render("login");
   }
-  data = [];
 });
 
 router.get("/login", (req, res) => {
