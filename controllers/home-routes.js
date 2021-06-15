@@ -51,10 +51,10 @@ router.get("/", (req, res) => {
           res.status(404).json({ message: "no Post data found" });
           return;
         }
-        data = [];
         const posts = dbPostData.map((post) => post.get({ plain: true }));
 
         Location.findAll({}).then((dbLocationData) => {
+          data = [];
           if (!dbLocationData) {
             res.status(404).json({ message: "no location data found" });
             return;
