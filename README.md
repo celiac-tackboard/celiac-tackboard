@@ -3,6 +3,10 @@
 
 ## Description
 This website serves as a community board for members to share their thoughts on gluten-free food, products, and services in Wisconsin.  Posts are separated by city to easily find information for the location you are in or are going to visit.  Users can add a link to an external site, or a rating to their post if they choose to, or they can omit a link and rating for a general discussion.  Users are able to comment on posts as well as upvote posts that they like.  On the users profile page they can view all of their previous posts and comments as well as create a new post. 
+
+## Link to Deployed Application
+(https://polar-brook-06864.herokuapp.com/)
+
 ## Table of Contents
   * [Installation](#Installation)
   * [Usage](#Usage)
